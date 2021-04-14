@@ -14,24 +14,24 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/todos', async (req, res) => {
-  try {
-    let { description = '', full_time, location = '', page = 1 } = req.query;
+// app.get('/todos', async (req, res) => {
+//   try {
+//     let { description = '', full_time, location = '', page = 1 } = req.query;
 
-    description = description ? encodeURIComponent(description) : '';
-    location = location ? encodeURIComponent(location) : '';
-    full_time = full_time === 'true' ? '&full_time=true' : '';
-    if (page) {
-      page = parseInt(page);
-      page = isNaN(page) ? '' : `&page=${page}`;
-    }
-    const query = `https://todos.github.com/positions.json?description=${description}&location=${location}${full_time}${page}`;
-    const result = await axios.get(query);
-    res.send(result.data);
-  } catch (error) {
-    res.status(400).send('Error while getting list of todos.Try again later.');
-  }
-});
+//     description = description ? encodeURIComponent(description) : '';
+//     location = location ? encodeURIComponent(location) : '';
+//     full_time = full_time === 'true' ? '&full_time=true' : '';
+//     if (page) {
+//       page = parseInt(page);
+//       page = isNaN(page) ? '' : `&page=${page}`;
+//     }
+//     const query = `https://todos.github.com/positions.json?description=${description}&location=${location}${full_time}${page}`;
+//     const result = await axios.get(query);
+//     res.send(result.data);
+//   } catch (error) {
+//     res.status(400).send('Error while getting list of todos.Try again later.');
+//   }
+// });
 
 const db = require("./app/models");
 db.mongoose
@@ -49,7 +49,7 @@ db.mongoose
 
 
 // simple route
-app.get("/", (req, res) => {
+app.get("/todos/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 

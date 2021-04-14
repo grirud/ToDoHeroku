@@ -31,7 +31,7 @@ db.mongoose
 
 
 // simple route
-app.get("", (req, res) => {
+app.get(PORT, (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 

@@ -25,11 +25,11 @@ app.get('/todos', async (req, res) => {
       page = parseInt(page);
       page = isNaN(page) ? '' : `&page=${page}`;
     }
-    const query = `https://jobs.github.com/positions.json?description=${description}&location=${location}${full_time}${page}`;
+    const query = `https://todos.github.com/positions.json?description=${description}&location=${location}${full_time}${page}`;
     const result = await axios.get(query);
     res.send(result.data);
   } catch (error) {
-    res.status(400).send('Error while getting list of jobs.Try again later.');
+    res.status(400).send('Error while getting list of todos.Try again later.');
   }
 });
 

@@ -66,7 +66,7 @@ function App() {
   };
 
   function handleChangeCountActive() {
-    const toDoIsDone = todos.filter((todo) => todo.isDone !== true);
+    const toDoIsDone = filterToDoStatus(false);
     const newCount = toDoIsDone.length;
     setCountActive(newCount);
   }

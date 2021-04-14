@@ -1,0 +1,24 @@
+.buttonPanel {
+  border-top: 1px solid rgb(206, 202, 202);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  color: rgb(168, 164, 164);
+}
+
+.buttonPanel button {
+  background-color: white;
+  font-size: 14px;
+  margin: 0px 10px;
+  color: rgb(168, 164, 164);
+  border: none;
+  border-radius: 5px;
+}
+
+.buttonDel:hover {
+  text-decoration: underline;
+}
+

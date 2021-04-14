@@ -37,7 +37,8 @@ function App() {
   const deleteToDoWithId = async (id) => {
     try {
       await APIHelper.deleteToDoWithId(id);
-      setToDos(todos.filter(({ _id: i }) => id !== i));
+      // setToDos(todos.filter(({ _id: i }) => id !== i));
+      fetchTodoAndSetToDos();
     } catch (err) {}
   };
 
@@ -45,7 +46,8 @@ function App() {
   const filterToDoStatus = async (statusToDo) => {
     try {
       await APIHelper.filterToDoStatus(statusToDo);
-      setVisibleToDos(todos.filter(({ isDone: i }) => statusToDo === i));
+      // setVisibleToDos(todos.filter(({ isDone: i }) => statusToDo === i));
+      fetchTodoAndSetToDos();
     } catch (err) {}
   };
 

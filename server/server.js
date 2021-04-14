@@ -4,6 +4,7 @@ const path = require('path');
 const axios = require('axios');
 
 const app = express();
+const PORT = process.env.PORT || 4000;
 
 const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.static(buildPath));
@@ -37,7 +38,7 @@ app.get("/todos/", (req, res) => {
 
 require("./app/routes/todo.routes")(app);
 // set port, listen for requests
-const PORT = process.env.PORT || 4000;
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
